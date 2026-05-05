@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#1E2A08" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Ministério Enraizados</title>
+    <script shadow-polyfill>
+      // Early fix for fetch getter-only error in some environments
+      (function() {
+        try {
+          var f = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            value: f,
+            writable: true,
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          console.warn('Fetch shadowing failed:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

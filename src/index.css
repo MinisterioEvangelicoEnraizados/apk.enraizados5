@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-500: #C49A2A;
+  --color-gold-600: #D4AB38;
+  --color-gold-700: #E8C96A;
+  --color-olive-900: #1E2A08;
+  --color-olive-800: #2C3F0D;
+  --color-olive-700: #3D4A1A;
+}
+
+@layer base {
+  :root {
+    --o900: #1E2A08; --o800: #2C3F0D; --o700: #3D4A1A; --o600: #4E5F22;
+    --o500: #5C6B2E; --o400: #7A8C40; --o300: #9AAD5A; --o200: #BDD088;
+    --o100: #DEE9BB; --o50: #F2F7E8;
+    --g900: #C49A2A; --g800: #D4AB38; --g700: #E8C96A;
+    --black: #0F1409; --gray900: #1C1C1C; --gray800: #2C2C2C;
+    --gray500: #888; --white: #FDFCF8;
+    --red: #8B2A2A; --red-light: #D96060;
+    --r4: 4px; --r6: 6px; --r8: 8px; --r10: 10px; --r14: 14px; --r20: 20px;
+    --sh-sm: 0 1px 4px rgba(0,0,0,.2);
+    --sh-md: 0 4px 20px rgba(0,0,0,.3);
+    --sh-lg: 0 12px 48px rgba(0,0,0,.45);
+    --sh-xl: 0 24px 80px rgba(0,0,0,.65);
+    --t: .18s ease;
+  }
+
+  body {
+    @apply font-sans bg-[var(--o700)] text-[var(--white)] text-sm antialiased overflow-x-hidden;
+    line-height: 1.5;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-attachment: fixed;
+    background-image: radial-gradient(circle at top right, rgba(196,154,42,0.05), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(61,74,26,0.1), transparent 40%);
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  input, select, textarea, button {
+    @apply font-sans text-base;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 px-6 py-3 rounded-[var(--r8)] font-semibold text-xs tracking-tight transition-all duration-200 whitespace-nowrap min-h-[44px] cursor-pointer active:scale-95;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--g900), var(--g700));
+    @apply text-[var(--black)];
+  }
+
+  .btn-blue {
+    background: linear-gradient(135deg, #1E5F7A, #2E8BAA);
+    @apply text-white;
+  }
+
+  .btn-green {
+    background: linear-gradient(135deg, #2E7D32, #43A047);
+    @apply text-white;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-[rgba(92,107,46,0.35)] text-[var(--o300)];
+  }
+
+  .btn-del {
+    @apply bg-transparent border border-[rgba(139,42,42,0.3)] text-[var(--red-light)] px-2.5 py-2 text-[11px] min-h-[36px];
+  }
+
+  .field {
+    @apply flex flex-col gap-1.5 mb-4 text-left;
+  }
+
+  .field label {
+    @apply text-[10px] font-bold tracking-[1.5px] uppercase text-[var(--g900)];
+  }
+
+  .field input, .field select, .field textarea {
+    @apply bg-[rgba(0,0,0,0.35)] border border-[rgba(92,107,46,0.4)] rounded-[var(--r6)] px-3.5 py-3.5 text-white outline-none transition-colors;
+    width: 100%;
+  }
+
+  .field input:focus, .field select:focus {
+    @apply border-[rgba(196,154,42,0.6)] shadow-[0_0_0_3px_rgba(196,154,42,0.08)];
+  }
+
+  .panel {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-[var(--r20)] overflow-hidden shadow-[var(--sh-lg)];
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  }
+
+  .panel-head {
+    @apply bg-linear-to-r from-[rgba(15,20,5,0.9)] to-[rgba(46,59,18,0.6)] border-b border-[rgba(196,154,42,0.12)] px-4 py-3 flex items-center justify-between gap-2.5 flex-wrap;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Great+Vibes&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
